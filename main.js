@@ -1,21 +1,19 @@
-/*console.log("Hello World!")
-console.log(document.querySelector('div.greeting'))
-console.log(document.querySelector('.greeting').innerText);
-
-
-let firstItem = document.querySelector('li.first').innerText;
-console.log(`The first thing i need to do is ${firstItem}`);
-*/
-
-let lis= document.querySelectorAll('li'); //searching for all li in the html doc
-console.log(lis);
-let sum = 0;
-for(let li of lis.values()){ //looping through all found list items
-    //sum += Number(li.innerText);
-    console.log(li) //outputing each list item
-}
-console.log(`Total Cost ${sum}`)
-console.log(document.querySelectorAll('div'));
-document.querySelector('button').addEventListener('click',function(){
-    document.querySelector('h3').innerText='Expenses have been paid!'
+const button = document.querySelector('button.btn');
+const todos = document.querySelector('ul.todos');//referencing the ul in the html
+console.log(button)
+button.addEventListener('click', () => {
+    
+    let item = document.querySelector('input#item'); //referencing the text input
+    if(item.value !==''){
+    let li = document.createElement('li'); //creating a list item element
+    li.id='new'
+    li.style.backgroundColor = 'pink';
+    li.innerHTML = item.value; //putting the text from the input into the li element
+    todos.appendChild(li);//adding the newly created element to the ul (DOM)
+    } else{
+        console.log('No list item entered')
+    }
 })
+
+
+
